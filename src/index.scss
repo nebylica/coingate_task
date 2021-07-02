@@ -1,0 +1,77 @@
+$purple: #5022ed;
+$green: #16dfb5;
+$white: #ffffff;
+$gray: #7f88a0;
+
+@mixin display($justify: center) {
+    display: flex;
+    justify-content: $justify;
+    align-items: center;
+}
+
+@mixin textWhite($size: 60px){
+    font-size: $size;
+    color: $white;
+}
+
+@mixin btn($bgColor: $green){
+    background-color: $bgColor;
+    cursor: pointer;
+    border-radius: 3px 25px 25px 20px;
+    transition: 0.3s ease;
+}
+
+@mixin rotate($radius: 53px){
+    border-radius: 53px;
+    position: absolute;
+    transform: rotate(-4deg);
+    z-index: -1;
+}
+
+%box-shadow {
+    -webkit-box-shadow: 0 0 15px 1px rgba(0,0,0,0.1);
+    box-shadow: 0 0 15px 1px rgba(0,0,0,0.1);
+}
+
+body {
+    margin: 0;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #ffffff;
+    font-family: Roboto,sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+input {
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+
+input:focus {
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.newWindow {
+    margin-top: 400px;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    color: $purple;
+}

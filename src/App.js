@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState, useEffect} from 'react'
+import {BrowserRouter as Router,Switch, Route,} from "react-router-dom";
+import Toolbar from "./components/Toolbar/Toolbar";
+import Main from "./components/Main/Main";
+import http from './plugins/Fetch'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    const [cryptoKeys, setCryptoKeys] = useState([])
+    const [currencyKeys, setCurrencyKeys] = useState([])
+    const [rates, setRates] = useState([])
+
+
+    useEffect(() => {
+        http.get('/getData').then(data => {
+            setCryptoKeys(data.cryptoKeys)
+            setCurrencyKeys(data.currencyKeys)
+            setRates(data.rates)
+        })
+    }, [])
+
+
+    return (
+        <Router>
+            <Toolbar />
+            <Switch>
+                <Route exact path='/'>
+                    {currencyKeys.length !== 0 &&
+                        <Main cryptoKeys={cryptoKeys}
+                              currencyKeys={currencyKeys}
+                              rates={rates}
+                        />
+                    }
+                </Route>
+                <Route exact path='/newWindow'>
+                    <div className='newWindow'>
+                        Buy crypto with us!
+                    </div>
+                </Route>
+            </Switch>
+        </Router>
   );
 }
 

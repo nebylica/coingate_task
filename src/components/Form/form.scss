@@ -1,0 +1,226 @@
+@import "../../index.scss";
+
+.form-container {
+  grid-column: 2;
+  grid-row: 1/3;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.form-background {
+  @include rotate($radius: 20px);
+  width: 100%;
+  height: 100%;
+  background-color: #E9F6FE;
+  top: -60px;
+  left: -60px;
+}
+
+.form {
+  width: 85%;
+  height: 80%;
+  padding: 20% 30px 30px 15px;
+  background-color: $white;
+  border-radius: 20px;
+  position: relative;
+}
+
+.form p {
+  margin: 40px 0 50px 0;
+}
+
+.submit-buy {
+  @include display;
+  @include textWhite($size: 18px);
+  @include btn($bgColor: $gray);
+  width: 100%;
+  height: 50px;
+  margin-top: 80px;
+}
+
+.submit-buy:hover {
+  background-color: $green;
+}
+
+.input-container {
+  @include display($justify: flex-start);
+  width: 90%;
+  height: 34px;
+  margin: 30px 0;
+  padding: 8px 5%;
+  background-color: $white;
+  font-size: 16px;
+  color: #000000;
+  border: 1px solid $gray;
+  border-radius: 20px;
+  position: relative;
+}
+
+.input-tag{
+  width: 15%;
+}
+
+.input-value {
+  width: 55%;
+}
+
+.input-dropdown {
+  @include display($justify: space-between);
+  width: 27%;
+  border-left: 1px solid $gray;
+  padding-left: 3%;
+  color: $gray;
+  cursor: pointer;
+}
+
+.input-dropdown img {
+  width: 22px;
+  height: 22px;
+}
+
+.input-payment {
+  @include display($justify: space-between);
+  width: 100%;
+  cursor: pointer;
+}
+
+.input-payment svg {
+  color: $gray;
+}
+
+.input-payment-option {
+  @include display($justify: flex-start);
+}
+
+.input-payment-option img {
+  height: 20px;
+  margin-right: 10px;
+}
+
+.dropdown-payment {
+  width: 90%;
+  height: auto;
+  background-color: $white;
+  border-left: 1px solid $gray;
+  border-radius: 5px;
+  @extend %box-shadow;
+  position: absolute;
+  bottom: -105px;
+  z-index: 2;
+}
+
+.dropdown-payment-img-box {
+  width: 35%;
+}
+
+.dropdown-payment-img-box img {
+  height: 20px;
+}
+
+.option-value {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+}
+
+.dropdown {
+  width: 120px;
+  height: 100px;
+  background-color: $white;
+  border-radius: 5px;
+  @extend %box-shadow;
+  position: absolute;
+  bottom: -102px;
+  right: 0;
+  z-index: 2;
+  overflow: scroll;
+}
+
+.dropdown-option {
+  @include display($justify: flex-start);
+  padding: 3px;
+  margin: 3px 0;
+  transition: 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.dropdown-option:hover {
+  background-color: #dedede;
+}
+
+.icons-place {
+  width: 22px;
+  height: 22px;
+  margin-right: 12px;
+}
+
+.error-message {
+  width:89%;
+  height: auto;
+  padding: 10px 5%;
+  background-color: $white;
+  border: 1px solid #e75656;
+  border-radius: 5px;
+  color: #e75656;
+  @extend %box-shadow;
+  text-align: center;
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  z-index: 2;
+}
+
+.error-arrow {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+}
+
+@media (max-width: 1200px){
+  .form {
+    width: 90%;
+    height: 100%;
+    padding: 5%;
+  }
+  .input-value {
+    width: 45%;
+  }
+
+  .input-dropdown {
+    width: 37%;
+  }
+}
+
+
+@media (max-width: 824px){
+  .form-container {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .form-background {
+    display: none;
+  }
+  .input-value {
+    width: 55%;
+  }
+
+  .input-dropdown {
+    width: 27%;
+  }
+}
+
+@media (max-width: 524px){
+  .input-value {
+    width: 45%;
+  }
+
+  .input-dropdown {
+    width: 37%;
+  }
+}
+

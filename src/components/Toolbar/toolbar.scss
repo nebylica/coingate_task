@@ -1,0 +1,96 @@
+@import "../../index.scss";
+
+
+.toolbar {
+  width: 100vw;
+  height: 100px;
+  background-color: $white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  @extend %box-shadow
+}
+
+.nav-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  padding-left: 50px;
+}
+
+.nav-left img {
+  width: 157px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  padding-right: 50px;
+}
+
+.nav {
+  margin: 0 40px;
+  font-size: 18px;
+  font-weight: 300;
+  color: $gray;
+  cursor: pointer;
+}
+
+.nav-sign-btn {
+  @include display($justify: flex-end);
+  @include textWhite($size: 18px);
+  @include btn;
+  width: 145px;
+  height: 50px;
+  font-weight: 300;
+}
+
+.nav-sign-btn:hover {
+  -webkit-box-shadow: 0 3px 10px 3px rgba(22,223,181,0.6);
+  box-shadow: 0 3px 10px 3px rgba(22,223,181,0.6);
+}
+
+.nav-sign-btn svg {
+  margin: 0 15px;
+}
+
+.burger-menu {
+  display: none;
+  font-size: 30px;
+  color: $gray;
+  cursor: pointer;
+}
+
+
+@media (max-width: 1100px) {
+
+  .toolbar {
+    height: 70px;
+  }
+
+  .nav-left {
+    padding-left: 30px;
+  }
+
+  .nav-right {
+    padding-right: 30px;
+  }
+
+  .nav, .nav-sign-btn {
+    display: none;
+  }
+
+  .burger-menu {
+    display: block;
+  }
+}
