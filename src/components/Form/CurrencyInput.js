@@ -30,7 +30,7 @@ function CurrencyInput({currencyKeys, currencyName, setCurrencyName, currencyInp
     return (
         <div className='input-container'>
             <div className='input-tag'>Pay</div>
-            <input className='input-value' type="number" value={currencyInput} onChange={e => currencyToCrypto(e)}/>
+            <input className='input-value' type="text" value={currencyInput} onChange={e => currencyToCrypto(e)}/>
             <div onClick={() => setShowCurrency(!showCurrency)} className='input-dropdown'>
                 <img src={icons.currency[currencyIcon]} alt={currencyIcon}/>
                 <div>{currencyName}</div>

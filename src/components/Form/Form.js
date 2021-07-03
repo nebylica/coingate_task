@@ -25,16 +25,22 @@ function Form({cryptoKeys, currencyKeys, rates}) {
     })
 
     function currencyToCrypto(e) {
-        if(Number(e.target.value) < 0)
+        let value = Number(e.target.value)
+        if(value < 0)
             return setCurrencyInputEmpty({error: true, msg: 'Please write only positive value.'})
+        if(Number.isNaN(value))
+            return setCurrencyInputEmpty({error: true, msg: 'Please write only numbers and/or dot.'})
         setCurrencyInputEmpty({error: false, msg: ''})
         setCurrencyInput(e.target.value)
         setConvert('currencyToCrypto')
     }
 
     function cryptoToCurrency(e) {
-        if(Number(e.target.value) < 0)
+        let value = Number(e.target.value)
+        if(value < 0)
             return setCryptoInputEmpty({error: true, msg: 'Please write only positive value.'})
+        if(Number.isNaN(value))
+            return setCryptoInputEmpty({error: true, msg: 'Please write only numbers and/or dot.'})
         setCryptoInputEmpty({error: false, msg: ''})
         setCryptoInput(e.target.value)
         setConvert('cryptoToCurrency')
@@ -53,24 +59,24 @@ function Form({cryptoKeys, currencyKeys, rates}) {
             if(convert === 'currencyToCrypto') {
                 const pay = {
                     name: currencyName,
-                    value: Number(currencyInput)
+                    value: currencyInput
                 }
                 const buy = {
                     name: cryptoName,
-                    value: Number(rates[currencyName][cryptoName])
+                    value: rates[currencyName][cryptoName]
                 }
                 setCryptoInput(pay.value * buy.value)
             }
             if(convert === 'cryptoToCurrency') {
                 const pay = {
                     name: currencyName,
-                    value: Number(rates[cryptoName][currencyName])
+                    value: rates[cryptoName][currencyName]
                 }
                 const buy = {
                     name: cryptoName,
-                    value: Number(cryptoInput)
+                    value: cryptoInput
                 }
-                setCurrencyInput(buy.value * pay.value)
+                setCurrencyInput(Number(buy.value * pay.value).toFixed(2))
             }
         }
     }, [currencyInput, currencyName, cryptoInput, cryptoName])

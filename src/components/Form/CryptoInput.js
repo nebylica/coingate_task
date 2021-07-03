@@ -14,7 +14,7 @@ function CryptoInput({cryptoKeys, cryptoName, setCryptoName, cryptoInput, crypto
     return (
         <div className='input-container'>
             <div className='input-tag'>Buy</div>
-            <input className='input-value' type="number" value={cryptoInput} onChange={e => cryptoToCurrency(e)}/>
+            <input className='input-value' type="text" value={cryptoInput} onChange={e => cryptoToCurrency(e)}/>
             <div onClick={() => setShowCrypto(!showCrypto)} className='input-dropdown'>
                 <img src={icons.crypto[cryptoName]} alt={cryptoName}/>
                 <div>{cryptoName}</div>
